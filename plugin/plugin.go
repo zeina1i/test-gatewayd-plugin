@@ -15,25 +15,25 @@ type Plugin struct {
 	Logger hclog.Logger
 }
 
-type TemplatePlugin struct {
+type TestGatewaydPlugin struct {
 	goplugin.NetRPCUnsupportedPlugin
 	Impl Plugin
 }
 
 // GRPCServer registers the plugin with the gRPC server.
-func (p *TemplatePlugin) GRPCServer(b *goplugin.GRPCBroker, s *grpc.Server) error {
+func (p *TestGatewaydPlugin) GRPCServer(b *goplugin.GRPCBroker, s *grpc.Server) error {
 	v1.RegisterGatewayDPluginServiceServer(s, &p.Impl)
 	return nil
 }
 
 // GRPCClient returns the plugin client.
-func (p *TemplatePlugin) GRPCClient(ctx context.Context, b *goplugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
+func (p *TestGatewaydPlugin) GRPCClient(ctx context.Context, b *goplugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
 	return v1.NewGatewayDPluginServiceClient(c), nil
 }
 
-// NewTemplatePlugin returns a new instance of the TestPlugin.
-func NewTemplatePlugin(impl Plugin) *TemplatePlugin {
-	return &TemplatePlugin{
+// NewTestGatewaydPlugin returns a new instance of the TestPlugin.
+func NewTestGatewaydPlugin(impl Plugin) *TestGatewaydPlugin {
+	return &TestGatewaydPlugin{
 		NetRPCUnsupportedPlugin: goplugin.NetRPCUnsupportedPlugin{},
 		Impl:                    impl,
 	}

@@ -4,13 +4,13 @@ import (
 	"flag"
 	"os"
 
+	"github.com/zeina1i/test-gatewayd-plugin/plugin"
 
 	sdkConfig "github.com/gatewayd-io/gatewayd-plugin-sdk/config"
 	"github.com/gatewayd-io/gatewayd-plugin-sdk/logging"
 	"github.com/gatewayd-io/gatewayd-plugin-sdk/metrics"
 	p "github.com/gatewayd-io/gatewayd-plugin-sdk/plugin"
 	v1 "github.com/gatewayd-io/gatewayd-plugin-sdk/plugin/v1"
-	"github.com/zeina1i/test-gatewayd-plugin/plugin"
 	"github.com/hashicorp/go-hclog"
 	goplugin "github.com/hashicorp/go-plugin"
 	"github.com/spf13/cast"
@@ -28,7 +28,7 @@ func main() {
 		Color:      hclog.ColorOff,
 	})
 
-	pluginInstance := plugin.NewTemplatePlugin(plugin.Plugin{
+	pluginInstance := plugin.NewTestGatewaydPlugin(plugin.Plugin{
 		Logger: logger,
 	})
 

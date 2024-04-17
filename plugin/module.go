@@ -13,7 +13,7 @@ var (
 		RemoteUrl: "https://github.com/zeina1i/test-gatewayd-plugin",
 	}
 	PluginMap = map[string]goplugin.Plugin{
-		"plugin-template-go": &TemplatePlugin{},
+		"test-gatewayd-plugin": &TestGatewaydPlugin{},
 	}
 	// TODO: Handle this in a better way
 	// https://github.com/gatewayd-io/gatewayd-plugin-sdk/issues/3
@@ -33,7 +33,7 @@ var (
 		"config": map[string]interface{}{
 			"metricsEnabled": sdkConfig.GetEnv("METRICS_ENABLED", "true"),
 			"metricsUnixDomainSocket": sdkConfig.GetEnv(
-				"METRICS_UNIX_DOMAIN_SOCKET", "/tmp/plugin-template-go.sock"),
+				"METRICS_UNIX_DOMAIN_SOCKET", "/tmp/test-gatewayd-plugin.sock"),
 			"metricsEndpoint": sdkConfig.GetEnv("METRICS_ENDPOINT", "/metrics"),
 		},
 		"hooks": []interface{}{

@@ -1,5 +1,5 @@
 PLUGIN_NAME=test-gatewayd-plugin
-PROJECT_URL=https://github.com/zeina1i/$(PLUGIN_NAME)
+PROJECT_URL=https://github.com/zeina1i/test-gatewayd-plugin
 CONFIG_PACKAGE=${PROJECT_URL}/plugin
 LAST_TAGGED_COMMIT=$(shell git rev-list --tags --max-count=1)
 VERSION=$(shell git describe --tags ${LAST_TAGGED_COMMIT})
@@ -14,7 +14,7 @@ build: tidy
 	@go build -ldflags "-s -w"
 
 checksum:
-	@sha256sum -b plugin-template-go
+	@sha256sum -b test-gatewayd-plugin
 
 update-all:
 	@go get -u ./...
