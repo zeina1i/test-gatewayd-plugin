@@ -1,4 +1,4 @@
-PLUGIN_NAME=gatewayd-plugin-cache
+PLUGIN_NAME=test-gatewayd-plugin
 PROJECT_URL=https://github.com/zeina1i/$(PLUGIN_NAME)
 CONFIG_PACKAGE=${PROJECT_URL}/plugin
 LAST_TAGGED_COMMIT=$(shell git rev-list --tags --max-count=1)
