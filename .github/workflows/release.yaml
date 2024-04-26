@@ -35,6 +35,6 @@ jobs:
             dist/*.zip
           draft: false
           prerelease: false
-          tag_name: $
-          name: $
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
           generate_release_notes: true
